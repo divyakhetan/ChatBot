@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask import Flask, jsonify, request, make_response
 import json
 import requests
+import os
 URL = "http://numbersapi.com/"
 
 app = Flask(__name__)
