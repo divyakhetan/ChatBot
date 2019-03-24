@@ -19,7 +19,7 @@ def post():
     print(req)
     intentName = req.get('queryResult').get('intent').get('displayName')
     if(intentName == 'Default Welcome Intent'):
-        return jsonify({"fulfillmentText" : "Welcome!! You can now know cool facts about any number or year.You can try some of these!\n 1. Tell me something cool about *some number* \n 2. What is some math fact related to *some number* 3. Tell me something for which the year *some year* is famous for!! Enjoy! :)"})
+        return jsonify({"fulfillmentText" : "Welcome!! You can now know cool facts about any number or year.You can try some of these!\n 1. Tell me something cool about *some number* \n 2. What is some math fact related to *some number* \n 3. Tell me something for which the year *some year* is famous for!! Enjoy! :)"})
     elif(intentName == 'numbers'):
         typeValue = req.get('queryResult').get("parameters").get("type")[0] #first element from list
         if(typeValue == "trivia"):
