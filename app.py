@@ -21,13 +21,21 @@ def post():
     if(intentName == 'Default Welcome Intent'):
         return jsonify({"fulfillmentText" : "Welcome!! You can now know cool facts about any number!! Enjoy! :)"})
     elif(intentName == 'numbers'):
-        typeValue = req.get('queryResult').get("parameters").get("type")[0]
-        number = int(req.get('queryResult').get("parameters").get("number"))
-        url =  URL + str(number) + '/' + typeValue + '?json'
-        response = requests.get(url)
-        txt = json.loads(response.text)["text"]
-        print(url)
-        return jsonify({"fulfillmentText" : txt})
+        typeValue = req.get('queryResult').get("parameters").get("type")
+        if(typeValue == "trivia"):
+            number = int(req.get('queryResult').get("parameters").get("number"))
+            url =  URL + str(number) + '/' + typeValue + '?json'
+            response = requests.get(url)
+            txt = json.loads(response.text)["text"]
+            print(url)
+            return jsonify({"fulfillmentText" : txt})
+        elif(typeValue == "math"):
+            number = int(req.get('queryResult').get("parameters").get("number"))
+            url =  URL + str(number) + '/' + typeValue + '?json'
+            response = requests.get(url)
+            txt = json.loads(response.text)["text"]
+            print(url)
+            return jsonify({"fulfillmentText" : txt})
     #print(intentName)
     
     return jsonify(req)
